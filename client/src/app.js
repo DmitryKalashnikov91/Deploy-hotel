@@ -10,7 +10,6 @@ import Menu from './app/components/Menu';
 import Actions from './app/components/Actions';
 import Contacts from './app/components/Contacts';
 import NumberList from './app/components/NumberList';
-import Main from './app/layout/Main';
 import HotelNumber from './app/layout/HotelNumber';
 import './styles/app.scss';
 import Booked from './app/components/pages/Booked';
@@ -22,6 +21,7 @@ import ProtectedRoute from './app/components/common/protectedRoute';
 import { getIsLoggedIn } from './redux/slices/userSlice';
 import LogOut from './app/layout/logOut';
 import UserCard from './app/components/pages/userCard';
+import Main from './app/components/Main';
 
 const App = () => {
     const isLoggedIn = useSelector(getIsLoggedIn());

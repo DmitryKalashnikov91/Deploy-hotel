@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getRooms, getRoomsLoadingStatus } from '../../redux/slices/roomsSlice';
 import RoomsDescription from '../layout/roomsDescription';
@@ -10,13 +10,13 @@ const NumberList = () => {
 
     if (!numbersIsLoading) {
         return (
-            <div className=''>
+            <div className='container-xxl'>
                 <RoomsDescription />
 
-                <div className='items text-light'>
+                <div className='items'>
                     {numbers.map((number) => (
                         <ul key={number._id} className='list-group'>
-                            <span>{number.title}</span>
+                            <span className='items-name'>{number.title}</span>
                             <Link to={`/all/${number._id}`}>
                                 <img
                                     src={number.imgUrl}
@@ -25,7 +25,7 @@ const NumberList = () => {
                                     width='200'
                                 />
                             </Link>
-                            <li className='list-group text-success'>
+                            <li className='list-group text-success price'>
                                 {number.price} рублей в сутки
                             </li>
                         </ul>
