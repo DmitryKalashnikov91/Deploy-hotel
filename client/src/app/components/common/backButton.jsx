@@ -1,9 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const BackHistoryButton = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(-1);
+    };
     return (
-        <button className='btn btn-outline-info' onClick={() => history.goBack()}>
+        <button className='btn btn-outline-info' onClick={handleClick}>
             <i className='bi bi-caret-left'></i>
             Назад
         </button>

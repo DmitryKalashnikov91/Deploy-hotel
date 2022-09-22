@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { getRooms, getRoomsLoadingStatus } from '../../redux/slices/roomsSlice';
 import RoomsDescription from '../layout/roomsDescription';
@@ -7,29 +8,28 @@ import RoomsDescription from '../layout/roomsDescription';
 const NumberList = () => {
     const numbers = useSelector(getRooms());
     const numbersIsLoading = useSelector(getRoomsLoadingStatus());
-
     if (!numbersIsLoading) {
         return (
             <div className='container-xxl'>
                 <RoomsDescription />
 
                 <div className='items'>
-                    {numbers.map((number) => (
-                        <ul key={number._id} className='list-group'>
-                            <span className='items-name'>{number.title}</span>
-                            <Link to={`/all/${number._id}`}>
-                                <img
-                                    src={number.imgUrl}
-                                    alt='room.img'
-                                    className='img-thumbnail rounded'
-                                    width='200'
-                                />
-                            </Link>
-                            <li className='list-group text-success price'>
-                                {number.price} рублей в сутки
+                    <ul className='list-group'>
+                        {numbers.map((number) => (
+                            <li key={number._id} className='list-group text-success price'>
+                                <span className='items-name'>{number.title}</span>
+                                <NavLink to={`/all/${number._id}`}>
+                                    <img
+                                        src={number.imgUrl}
+                                        alt='room.img'
+                                        className='img-thumbnail rounded'
+                                        width='200'
+                                    />
+                                </NavLink>
+                                <span>{number.price} рублей в сутки</span>
                             </li>
-                        </ul>
-                    ))}
+                        ))}
+                    </ul>
                 </div>
             </div>
         );

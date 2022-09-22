@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 const Entertaiments = () => {
     return (
-        <Carousel>
+        <Carousel className='carousel'>
             <Carousel.Item>
                 <img
                     className='d-block w-100  rounded'
@@ -22,7 +22,7 @@ const Entertaiments = () => {
                     alt='sauna'
                 />
                 <Carousel.Caption>
-                    <h3>Спа: сауна и массаж</h3>
+                    <p>Спа: сауна и массаж</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>

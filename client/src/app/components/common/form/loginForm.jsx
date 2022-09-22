@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import TextField from '../../textField';
 import { validator } from '../../../../utils/validator';
-import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../../redux/slices/userSlice';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 const LoginForm = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [data, setData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
@@ -59,31 +60,40 @@ const LoginForm = () => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        const redirect = history.location.state ? history.location.state.from.pathname : '/';
-        dispatch(login({ payload: data, redirect }));
+        navigate('/All');
+        dispatch(login({ payload: data }));
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <TextField
-                label='Электронная почта'
-                name='email'
-                value={data.email}
-                onChange={handleChange}
-                error={errors.email}
-            />
-            <TextField
-                label='Пароль'
-                type='password'
-                name='password'
-                value={data.password}
-                onChange={handleChange}
-                error={errors.password}
-            />
-            <button disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
-                Submit
-            </button>
-        </form>
+        <>
+            <h3 className='mb-4'>Login</h3>
+            <form onSubmit={handleSubmit}>
+                <TextField
+                    label='Электронная почта'
+                    name='email'
+                    value={data.email}
+                    onChange={handleChange}
+                    error={errors.email}
+                />
+                <TextField
+                    label='Пароль'
+                    type='password'
+                    name='password'
+                    value={data.password}
+                    onChange={handleChange}
+                    error={errors.password}
+                />
+                <span>
+                    Don't have account?{' '}
+                    <NavLink to='/auth/register'>
+                        <button className='btn btn-link'> Sign up</button>
+                    </NavLink>
+                </span>
+                <button disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
+                    Submit
+                </button>
+            </form>
+        </>
     );
 };
 

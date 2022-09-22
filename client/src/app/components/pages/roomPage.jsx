@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import roomService from '../../services/room.servise';
 import BackHistoryButton from '../common/backButton';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addItem } from '../../../redux/bookedSlice';
+import { Navigate, useParams } from 'react-router-dom';
 
-const RoomPage = ({ roomId }) => {
+const RoomPage = () => {
+    const { roomId } = useParams();
     const dispatch = useDispatch();
 
     const [room, setRoom] = React.useState([]);
@@ -13,9 +15,13 @@ const RoomPage = ({ roomId }) => {
     useEffect(async () => {
         const req = await roomService.get();
         setRoom(req.find((room) => room._id === roomId));
-
         setIsLoading(false);
     }, []);
+
+    if (!room && isLoading === false) {
+        return <Navigate to='/All' />;
+    }
+
     const onClickAdd = () => {
         const item = {
             roomId,
@@ -25,12 +31,12 @@ const RoomPage = ({ roomId }) => {
         };
         dispatch(addItem(item));
     };
-    if (!isLoading) {
+    if (!isLoading && room) {
         return (
             <div className='text-light'>
                 <h1>{room.title}</h1>
                 <h2>Стоимость: {room.price} рублей/сутки</h2>
-                <img className='rounded' src={room.imgUrl} alt='roomIMG' width='700' />
+                <img className='rounded roomImg' src={room.imgUrl} alt='roomIMG' width='700' />
                 <div className='mt-5'>
                     <button className='btn btn-primary' onClick={onClickAdd}>
                         Выбрать этот <i></i>

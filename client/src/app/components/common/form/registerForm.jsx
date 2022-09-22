@@ -3,12 +3,14 @@ import TextField from '../../textField';
 import { validator } from '../../../../utils/validator';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../../../redux/slices/userSlice';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const RegisterForm = () => {
     const [data, setData] = useState({ email: '', password: '', name: '' });
     const [errors, setErrors] = useState({});
-    const dispatch = useDispatch();
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const handleChange = ({ target }) => {
         setData((prevState) => ({
             ...prevState,
@@ -70,36 +72,46 @@ const RegisterForm = () => {
         const isValid = validate();
         if (!isValid) return;
         dispatch(signUp(data));
+        navigate('/All');
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <TextField
-                label='Имя Фамилия'
-                name='name'
-                value={data.name}
-                onChange={handleChange}
-                error={errors.name}
-            />
-            <TextField
-                label='Электронная почта'
-                name='email'
-                value={data.email}
-                onChange={handleChange}
-                error={errors.email}
-            />
-            <TextField
-                label='Пароль'
-                type='password'
-                name='password'
-                value={data.password}
-                onChange={handleChange}
-                error={errors.password}
-            />
-            <button disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
-                Submit
-            </button>
-        </form>
+        <>
+            <h3 className='mb-4'>Registration</h3>
+            <form onSubmit={handleSubmit}>
+                <TextField
+                    label='Имя Фамилия'
+                    name='name'
+                    value={data.name}
+                    onChange={handleChange}
+                    error={errors.name}
+                />
+                <TextField
+                    label='Электронная почта'
+                    name='email'
+                    value={data.email}
+                    onChange={handleChange}
+                    error={errors.email}
+                />
+                <TextField
+                    label='Пароль'
+                    type='password'
+                    name='password'
+                    value={data.password}
+                    onChange={handleChange}
+                    error={errors.password}
+                />
+                <p>
+                    Already have account?{' '}
+                    <NavLink to='/auth/logIn'>
+                        <button className='btn btn-link'> Sign in</button>
+                    </NavLink>
+                </p>
+                <button disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
+                    Submit
+                </button>
+            </form>
+        </>
     );
 };
 

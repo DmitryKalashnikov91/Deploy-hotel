@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../../redux/slices/userSlice';
@@ -10,18 +10,18 @@ const ProtectedRoute = ({ component: Component, children, ...rest }) => {
         <Route
             {...rest}
             render={(props) => {
-                if (!isLoggedIn) {
-                    return (
-                        <Redirect
-                            to={{
-                                pathname: '/logIn',
-                                state: {
-                                    from: props.location,
-                                },
-                            }}
-                        />
-                    );
-                }
+                // if (!isLoggedIn) {
+                // return (
+                // <Redirect
+                //         to={{
+                //             pathname: '/logIn',
+                //             state: {
+                //                 from: props.location,
+                //             },
+                //         }}
+                //     // />
+                // );
+                // }
                 return Component ? <Component {...props} /> : children;
             }}
         />

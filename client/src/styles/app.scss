@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Roboto+Flex:opsz@8..144&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+
+
+
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(70deg, #bbe0d6, #dfdcdb)
+    background: -webkit-radial-gradient(center, ellipse cover, #020669 0%,#000000 100%);
+    background-repeat:no-repeat;
+    max-width: 1400px;
+    min-height: 900px;
+
+    h1,h2,h3,h4 {
+        color: #fdfdfd;
+    }
 }
-.welcome {
-    font-family: 'Playball', cursive;
-}
+
 .navbar {
-    padding-top: 2.5em;
+    padding: 0;
+    margin: 0;
 }
 .description{
     h3{
@@ -19,16 +28,17 @@ body {
 }
 
 .main {
-    img {
-        width: 100%;
-        opacity: 0.5;
-        margin-top: -70px;
-    }
-    h2 {
-        position: relative;
-        z-index: 1000;
-        color: #ED4264;
-    }
+    
+h1 {
+    text-align: center;
+    
+    color: rgb(253, 252, 252);
+    font-style: italic;
+    font-size: 30px;
+}    
+img {
+    max-width: 100%;
+}
 }
 :root {
     --bg: #fdfdfd;
@@ -99,7 +109,10 @@ body {
     padding: 0rem 0 0 0;
     margin: 0 0 1rem 0;
     font: normal 1.5rem var(--font-head);
-        color: #ED4264;
+    color: #ED4264; 
+}
+.headline-info {
+    color: #ED4264;
 }
 .menu {
     background: linear-gradient(180deg,rgba(168, 238, 231, 0.642),rgba(194, 173, 186, 0.5));
@@ -108,16 +121,20 @@ body {
     padding: 10px;
     
 }
+.roomImg {
+    max-width: 100%;
+    min-height: 100%;
+}
 
 .items {
-    display: grid;
+   ul { display: grid;
 grid-template-columns: repeat(4, 1fr);
 grid-template-rows: 1fr;
 grid-column-gap: 20px;
 grid-row-gap: 15px;
 padding-top: 7em;
 margin-left: 20px;  
-
+   
 @media (max-width: 850px) {
     grid-template-columns: repeat(2, 1fr);
 
@@ -126,5 +143,31 @@ margin-left: 20px;
     grid-template-columns: repeat(1, 1fr);
    
 }
+}}
+
+
+.carousel {
+    margin-left: 10%;
+    img {
+        
+        max-width: 1000px;
+        
+    }
+    p {
+        font-size: 25px;
+    }
+ 
 }
 
+@media (max-width: 600px) {
+    .main h1 {
+        font-size: 18px;
+        color: #0980f8;
+        mix-blend-mode:darken;
+    }
+    .carousel p, h3 {
+        font-size: 12px;
+        color: rgb(187, 255, 164);
+    }
+    
+}

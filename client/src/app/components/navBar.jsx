@@ -42,7 +42,7 @@ const NavBar = () => {
                         <NavProfile />
                     ) : (
                         <li className='nav-item'>
-                            <Link to='/login' aria-current='page' className='nav-link'>
+                            <Link to='/auth/login' aria-current='page' className='nav-link'>
                                 Войти / Зарегистрироваться
                             </Link>
                         </li>
