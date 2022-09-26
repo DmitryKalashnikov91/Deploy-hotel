@@ -51,8 +51,8 @@ const Booked = () => {
     } else {
         return (
             <div>
-                <span className=''>
-                    Выбранных номеров нет.<Link to='/All'>Выбрать?</Link>
+                <span>
+                    Выбранных номеров нет.<Link to='/All'> Выбрать?</Link>
                 </span>
             </div>
         );

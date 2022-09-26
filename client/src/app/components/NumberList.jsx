@@ -1,8 +1,12 @@
+// Libraries
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
+// Redux
 import { getRooms, getRoomsLoadingStatus } from '../../redux/slices/roomsSlice';
+
+// Components
 import RoomsDescription from '../layout/roomsDescription';
 
 const NumberList = () => {

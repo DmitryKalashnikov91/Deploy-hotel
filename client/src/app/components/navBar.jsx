@@ -1,7 +1,12 @@
+// Libraries
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+//Redux
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/slices/userSlice';
+
+// Layouts
 import NavProfile from '../layout/navProfile';
 
 const NavBar = () => {

@@ -1,10 +1,17 @@
+// libraries
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import roomService from '../../services/room.servise';
-import BackHistoryButton from '../common/backButton';
 import { useDispatch } from 'react-redux';
-import { addItem } from '../../../redux/bookedSlice';
 import { Navigate, useParams } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+// redux
+import { addItem } from '../../../redux/bookedSlice';
+
+// services
+import roomService from '../../services/room.servise';
+
+// components
+import BackHistoryButton from '../common/backButton';
 
 const RoomPage = () => {
     const { roomId } = useParams();

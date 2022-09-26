@@ -89,7 +89,7 @@ const LoginForm = () => {
                         <button className='btn btn-link'> Sign up</button>
                     </NavLink>
                 </span>
-                <button disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
+                <button type='submit' disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
                     Submit
                 </button>
             </form>
