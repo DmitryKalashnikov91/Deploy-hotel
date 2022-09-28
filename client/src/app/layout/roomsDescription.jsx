@@ -3,7 +3,6 @@ import React from 'react';
 const RoomsDescription = () => {
     return (
         <div className='description'>
-            <h3>Предлагаем на выбор номера 4х видов:</h3>
             <ul className='list'>
                 <li className='item'>
                     <p className='headline'>"Стандартный":</p>

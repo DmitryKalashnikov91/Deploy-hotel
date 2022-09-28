@@ -77,7 +77,7 @@ const RegisterForm = () => {
 
     return (
         <>
-            <h3 className='mb-4'>Registration</h3>
+            <h3 className='mb-4'>Регистрация</h3>
             <form onSubmit={handleSubmit}>
                 <TextField
                     label='Имя Фамилия'
@@ -102,13 +102,13 @@ const RegisterForm = () => {
                     error={errors.password}
                 />
                 <p>
-                    Already have account?{' '}
+                    Уже есть аккаунт?
                     <NavLink to='/auth/logIn'>
-                        <button className='btn btn-link'> Sign in</button>
+                        <button className='btn btn-link'>войти</button>
                     </NavLink>
                 </p>
                 <button type='submit' disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
-                    Submit
+                    регистрация
                 </button>
             </form>
         </>

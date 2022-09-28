@@ -26,7 +26,7 @@ const NumberList = () => {
                                     <img
                                         src={number.imgUrl}
                                         alt='room.img'
-                                        className='img-thumbnail rounded'
+                                        className=' rounded'
                                         width='200'
                                     />
                                 </NavLink>

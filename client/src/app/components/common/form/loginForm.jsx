@@ -66,7 +66,7 @@ const LoginForm = () => {
 
     return (
         <>
-            <h3 className='mb-4'>Login</h3>
+            <h3 className='mb-4'>Войти</h3>
             <form onSubmit={handleSubmit}>
                 <TextField
                     label='Электронная почта'
@@ -84,13 +84,13 @@ const LoginForm = () => {
                     error={errors.password}
                 />
                 <span>
-                    Don't have account?{' '}
+                    Еще не регистрировались?{' '}
                     <NavLink to='/auth/register'>
-                        <button className='btn btn-link'> Sign up</button>
+                        <button className='btn btn-link'> регистрация</button>
                     </NavLink>
                 </span>
                 <button type='submit' disabled={!isValid} className='btn btn-primary w-100 mx-auto'>
-                    Submit
+                    вход
                 </button>
             </form>
         </>
