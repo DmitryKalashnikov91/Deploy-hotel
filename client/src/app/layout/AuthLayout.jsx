@@ -1,7 +1,13 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Navigate, Outlet } from 'react-router-dom';
+import { getIsLoggedIn } from '../../redux/slices/userSlice';
 
 const AuthLayout = () => {
+    const isLoggedIn = useSelector(getIsLoggedIn());
+    if (isLoggedIn) {
+        return <Navigate to='/' />;
+    }
     return (
         <>
             <div className='container mt-5'>

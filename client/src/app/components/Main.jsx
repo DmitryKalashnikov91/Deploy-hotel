@@ -64,7 +64,8 @@ const Main = () => {
                 </button>
                 <span>Количество дней: {daysLag} </span>
                 <span className='text-info'>
-                    Стоимость от: {numOfPeople < 3 ? daysLag * 3700 : daysLag * 4500} рублей
+                    Стоимость от:{' '}
+                    {numOfPeople < 3 && numOfPeople > 0 ? daysLag * 3700 : daysLag * 4500} рублей
                 </span>
             </form>
             <div className='main'>
@@ -75,12 +76,6 @@ const Main = () => {
                     alt='home'
                 />
             </div>
-
-            <span className='mt-3'>
-                <Link className='link-secondary' to='/reviews'>
-                    Читать, оставить отзывы
-                </Link>
-            </span>
         </div>
     );
 };

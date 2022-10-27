@@ -72,7 +72,7 @@ const RegisterForm = () => {
         const isValid = validate();
         if (!isValid) return;
         dispatch(signUp(data));
-        navigate('/All');
+        // navigate('/all');
     };
 
     return (

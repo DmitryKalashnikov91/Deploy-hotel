@@ -14,8 +14,14 @@ const Reviews = () => {
     const isLoading = useSelector(getReviewsLoadingStatus());
     return (
         <>
-            <div>{!isLoading ? <ReviewsList /> : 'Loading...'}</div>
-            <div className='input-group mb-3'>
+            <div>
+                {isLoading ? (
+                    <ReviewsList />
+                ) : (
+                    <p className='text-info'>Здесь пока нет отзывов, можете оставить свой</p>
+                )}
+            </div>
+            <div className='input-group mb-4'>
                 <input
                     type='text'
                     className='form-control'

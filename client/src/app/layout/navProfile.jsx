@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentUserData, logOut } from '../../redux/slices/userSlice';
@@ -10,11 +11,14 @@ const NavProfile = () => {
     const handleLogOut = () => {
         dispatch(logOut());
     };
-    document.addEventListener('mousedown', function (e) {
-        if (e.target.closest('.dropdown') === null) {
-            setOpen(false);
-        }
-    });
+    useEffect(() => {
+        document.addEventListener('mousedown', function (e) {
+            if (e.target.closest('.dropdown') === null) {
+                setOpen(false);
+            }
+        });
+    }, []);
+
     const toggleMenu = () => {
         setOpen((prevState) => !prevState);
     };
@@ -26,10 +30,10 @@ const NavProfile = () => {
             </div>
             <div className={'w-100 dropdown-menu' + (isOpen ? ' show' : '')}>
                 <Link to='/userCard' className='dropdown-item'>
-                    Profile
+                    <span className='text-primary'>Профиль</span>
                 </Link>
                 <Link to='/logout' className='dropdown-item' onClick={handleLogOut}>
-                    Logout
+                    <span className='text-danger'>Выйти</span>
                 </Link>
             </div>
         </div>

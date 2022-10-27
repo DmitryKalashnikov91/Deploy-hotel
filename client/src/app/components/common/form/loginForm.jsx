@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import TextField from '../../textField';
 import { validator } from '../../../../utils/validator';
-import { useDispatch } from 'react-redux';
-import { login } from '../../../../redux/slices/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAuthErrors, login } from '../../../../redux/slices/userSlice';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 const LoginForm = () => {
@@ -10,7 +10,8 @@ const LoginForm = () => {
     const dispatch = useDispatch();
     const [data, setData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
-
+    const [enterErr, setEnterErr] = useState(null);
+    const loginError = useSelector(getAuthErrors());
     const handleChange = ({ target }) => {
         setData((prevState) => ({
             ...prevState,
@@ -55,13 +56,13 @@ const LoginForm = () => {
     };
 
     const isValid = Object.keys(errors).length === 0;
-
+    console.log(loginError);
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();
         if (!isValid) return;
-        navigate('/All');
-        dispatch(login({ payload: data }));
+        const redirect = '/all';
+        dispatch(login({ payload: data, redirect }));
     };
 
     return (
@@ -83,6 +84,7 @@ const LoginForm = () => {
                     onChange={handleChange}
                     error={errors.password}
                 />
+                {loginError && <p className='text-danger'>{loginError}</p>}
                 <span>
                     Еще не регистрировались?{' '}
                     <NavLink to='/auth/register'>
