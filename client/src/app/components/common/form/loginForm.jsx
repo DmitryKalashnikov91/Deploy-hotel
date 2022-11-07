@@ -3,14 +3,12 @@ import TextField from '../../textField';
 import { validator } from '../../../../utils/validator';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAuthErrors, login } from '../../../../redux/slices/userSlice';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const LoginForm = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [data, setData] = useState({ email: '', password: '' });
     const [errors, setErrors] = useState({});
-    const [enterErr, setEnterErr] = useState(null);
     const loginError = useSelector(getAuthErrors());
     const handleChange = ({ target }) => {
         setData((prevState) => ({
@@ -45,18 +43,16 @@ const LoginForm = () => {
         },
     };
 
-    useEffect(() => {
-        validate();
-    }, [data]);
-
     const validate = () => {
         const errors = validator(data, validatorConfig);
         setErrors(errors);
         return Object.keys(errors).length === 0;
     };
+    useEffect(() => {
+        validate();
+    }, [data]);
 
     const isValid = Object.keys(errors).length === 0;
-    console.log(loginError);
     const handleSubmit = (e) => {
         e.preventDefault();
         const isValid = validate();

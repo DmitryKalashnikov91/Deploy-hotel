@@ -1,38 +1,56 @@
 import React, { useEffect } from 'react';
+import { orderBy } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
-import { getReviewsLoadingStatus, loadReviewsList } from '../../../../redux/slices/reviewSlice';
+import {
+    addReview,
+    getReviews,
+    getReviewsLoadingStatus,
+    loadReviewsList,
+    removeReview,
+} from '../../../../redux/slices/reviewSlice';
 import { getCurrentUserData } from '../../../../redux/slices/userSlice';
 import ReviewsList from './reviewsList';
+import AddReviewForm from './addReviewForm';
 
 const Reviews = () => {
     const dispatch = useDispatch();
     const currentUser = useSelector(getCurrentUserData());
     useEffect(() => {
-        dispatch(loadReviewsList());
-    }, []);
+        dispatch(loadReviewsList(currentUser._id));
+    }, [currentUser._id]);
 
+    const handleRemoveReview = (data) => {
+        removeReview(data);
+    };
+    const reviews = useSelector(getReviews());
     const isLoading = useSelector(getReviewsLoadingStatus());
+    const handleSubmit = (data) => {
+        dispatch(addReview({ ...data, pageId: currentUser._id }));
+    };
+    const sortedReviews = orderBy(reviews, ['created_at'], ['desc']);
     return (
         <>
-            <div>
-                {isLoading ? (
-                    <ReviewsList />
-                ) : (
-                    <p className='text-info'>Здесь пока нет отзывов, можете оставить свой</p>
-                )}
+            <div className='card mb-2'>
+                <div className='card-body '>
+                    <AddReviewForm onSubmit={handleSubmit} />
+                </div>
             </div>
-            <div className='input-group mb-4'>
-                <input
-                    type='text'
-                    className='form-control'
-                    placeholder='напишите отзыв'
-                    aria-label='review'
-                    aria-describedby='button-addon2'
-                />
-                <button className='btn btn-outline-secondary' type='button' id='button-addon2'>
-                    Отправить
-                </button>
-            </div>
+            {sortedReviews > 0 && (
+                <div className='card mb-3'>
+                    <div className='card-body '>
+                        <h2>Reviews</h2>
+
+                        <hr />
+                        {isLoading ? (
+                            <ReviewsList reviews={sortedReviews} onRemove={handleRemoveReview} />
+                        ) : (
+                            <p className='text-info'>
+                                Здесь пока нет отзывов, можете оставить свой
+                            </p>
+                        )}
+                    </div>
+                </div>
+            )}
         </>
     );
 };

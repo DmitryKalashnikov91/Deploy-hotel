@@ -11,9 +11,9 @@ const Footer = () => {
                     отеле.
                 </p>
                 <div className='icons text-info'>
-                    <i className='bi bi-telegram tg-ico'></i>
-                    <i className='bi bi-instagram'></i>
-                    <i className='bi bi-facebook'></i>
+                    <a href="https://t.me/kald3al" target="_blank" rel="noopener noreferrer"><i className='bi bi-telegram tg-ico'></i></a>
+                    <a href="https://vk.com/id70942768" target="_blank" rel="noopener noreferrer"><i className='bi bi-instagram'></i></a>
+                    <a href="/"><i className='bi bi-facebook'></i></a>
                 </div>
             </footer>
         </span>

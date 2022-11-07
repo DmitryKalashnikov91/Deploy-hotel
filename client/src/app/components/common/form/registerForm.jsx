@@ -3,13 +3,12 @@ import TextField from '../../textField';
 import { validator } from '../../../../utils/validator';
 import { useDispatch } from 'react-redux';
 import { signUp } from '../../../../redux/slices/userSlice';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const RegisterForm = () => {
     const [data, setData] = useState({ email: '', password: '', name: '' });
     const [errors, setErrors] = useState({});
 
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const handleChange = ({ target }) => {
         setData((prevState) => ({

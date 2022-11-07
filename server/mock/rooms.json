@@ -3,26 +3,55 @@
     "_id": "67rdca3eeb7f6fgeed471100",
     "title": "Стандартный",
     "price": 3700,
-    "imgUrl": "https://images.unsplash.com/photo-1557127275-f8b5ba93e24e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    "imgUrl": "https://images.unsplash.com/photo-1557127275-f8b5ba93e24e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "description": {
+      "content": "однокомнатный номер, около 12кв.м, 2 кровати-трансформер в сдвинутом состоянии (при необходимости могут быть раздвинуты). В номере сейф, мини-бар за доп.оплату, плазменный ТВ, в санузле ванная, набор косметики, фен. Доп.место не устанавливается.",
+      "icons": {
+        "path": ["bi bi-yin-yang", "bi bi-wind", "bi bi-safe2", "bi bi-tv", "bi bi-cup-straw", "bi bi-wifi", "bi bi-screwdriver"],
+        "name": ["ванная комната", "фен", "сейв", "телевизор", "мини-бар", "wi-fi", "набор косметики"]
+      }
+    }
   },
   {
     "_id": "67rdca3eeb7f6fgeed471198",
     "title": "Семейный",
     "price": 4500,
-    "imgUrl": "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+    "imgUrl": "https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
+    "description": {
+      "content": "Двухкомнатный номер БЕЗ межкомнатной двери, около 18 кв.м. Спальня – одна двуспальная кровать, Гостиная (проходная комната) – раскладной диван. В номере сейф, мини-бар за доп.оплату, плазменный ТВ, в санузле ванная, набор косметики, фен, халаты и тапочки.",
+      "icons": {
+        "path": ["bi bi-yin-yang", "bi bi-wind", "bi bi-safe2", "bi bi-tv", "bi bi-cup-straw", "bi bi-wifi"],
+        "name": ["ванная комната", "фен", "сейв", "телевизор", "мини-бар", "wi-fi"]
+      }
+    }
+    
   },
   
   {
     "_id": "67rdca3eeb7f6fgeed471550",
     "title": "Люкс",
     "price": 7000,
-    "imgUrl": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    "imgUrl": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "description": {
+      "content": "Трехкомнатный номер с межкомнатными дверьми площадью около 130 кв.м. Две спальни — одна двуспальная кровать в каждой, Гостиная (проходная комната) — раскладной диван (2 доп. места). Возможна установка доп. детской кроватки-люльки для младенца в спальне. В номере сейф, мини-бар за доп. оплату, 3 плазменных ТВ (в каждой спальне и в гостиной), два санузла (в каждой спальне). В каждом санузле: ванна, раковина, унитаз, беде, набор косметики, фен, халаты и тапочки. В одном из санузлов дополнительно душевая кабина.", 
+      "icons": {
+        "path": ["bi bi-yin-yang", "bi bi-wind", "bi bi-safe2", "bi bi-tv", "bi bi-cup-straw", "bi bi-wifi", "bi bi-screwdriver"],
+        "name": ["ванная комната", "фен", "сейв", "телевизор x 3", "мини-бар", "wi-fi", "набор косметики" ]
+      }
+    }
   },
   {
     "_id": "67rdca3eeb7f6fgeed473240",
     "title": "Бизнес",
     "price": 10000,
-    "imgUrl": "https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    "imgUrl": "https://images.unsplash.com/photo-1621891333819-00c206ec8994?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "description": {
+      "content": "Площадь номера 60 кв.м.1 этаж: гостиная со столом на 4 персоны, раскладной диван, санузел (ванна, унитаз, биде). 2 этаж: спальня с двуспальной кроватью, раскладной диван, гардеробная и санузел (ванна, унитаз и биде). Возможна установка  дополнительного места – еврораскладушки (или детская кроватка-люлька). В номере сейф, мини-бар , 2 плазменных ТВ (в спальне и в гостиной), два санузла, набор косметики, фен, халаты и тапочки. Теплые полы на 1 и 2 этажах + в санузлах. На втором этаже одно большое центральное окно – не  открывается. У каждого номера отдельный вход с улицы.",
+      "icons": {
+        "path": ["bi bi-yin-yang", "bi bi-wind", "bi bi-safe2", "bi bi-tv", "bi bi-cup-straw", "bi bi-wifi"],
+        "name": ["ванная комната", "фен", "сейв", "телевизор x 2", "мини-бар", "wi-fi"]
+      }
+    }
   }
 ]
 

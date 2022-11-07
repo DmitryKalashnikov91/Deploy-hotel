@@ -11,6 +11,22 @@ const schema = new Schema(
             type: String,
             required: true,
         },
+        description: {
+            content: {
+                type: String,
+                required: true,
+            },
+            icons: {
+                path: {
+                    type: Array,
+                    required: true,
+                },
+                name: {
+                    type: Array,
+                    required: true,
+                },
+            },
+        },
     },
     {
         timestamps: true,

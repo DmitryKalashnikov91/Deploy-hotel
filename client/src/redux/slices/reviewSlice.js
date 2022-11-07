@@ -1,6 +1,5 @@
 import { createAction, createSlice } from '@reduxjs/toolkit';
 import reviewService from '../../app/services/review.service';
-
 const reviewsSlice = createSlice({
     name: 'reviews',
     initialState: {
@@ -40,14 +39,14 @@ const removeReviewRequested = createAction('reviews/removeReviewRequested');
 export const loadReviewsList = (userId) => async (dispatch) => {
     dispatch(reviewsRequested());
     try {
-        const { content } = await reviewService.getreviews(userId);
+        const { content } = await reviewService.getReviews(userId);
         dispatch(reviewsRecieved(content));
     } catch (error) {
         dispatch(reviewsRequestFiled(error.message));
     }
 };
 
-export const addReview = (payload) => async (dispatch) => {
+export const addReview = (payload) => async (dispatch, getState) => {
     dispatch(addReviewRequested(payload));
     try {
         const { content } = await reviewService.createReview(payload);

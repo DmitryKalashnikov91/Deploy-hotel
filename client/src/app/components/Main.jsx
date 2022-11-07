@@ -1,6 +1,5 @@
 // Libraries
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 const Main = () => {
     const [daysLag, setDaysLag] = useState(0);

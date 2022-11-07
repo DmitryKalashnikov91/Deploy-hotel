@@ -9,9 +9,9 @@ import { addItem } from '../../../redux/bookedSlice';
 
 // services
 import roomService from '../../services/room.servise';
-
 // components
 import BackHistoryButton from '../common/backButton';
+// import bath from '../../../assets/bath.svg';
 
 const RoomPage = () => {
     const { roomId } = useParams();
@@ -19,15 +19,19 @@ const RoomPage = () => {
 
     const [room, setRoom] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState([true]);
-    useEffect(async () => {
-        const req = await roomService.get();
-        setRoom(req.find((room) => room._id === roomId));
-        setIsLoading(false);
-    }, []);
+    useEffect(() => {
+        async function fetchData() {
+            const req = await roomService.get();
+            setRoom(req.find((room) => room._id === roomId));
+            setIsLoading(false);
+        }
+        fetchData();
+    }, [roomId]);
 
     if (!room && isLoading === false) {
         return <Navigate to='/All' />;
     }
+    const icons = room?.description?.icons;
 
     const onClickAdd = () => {
         const item = {
@@ -38,17 +42,30 @@ const RoomPage = () => {
         };
         dispatch(addItem(item));
     };
+
+    // const icons = room?.description?.equipment?.icons;
     if (!isLoading && room) {
         return (
-            <div className='text-light'>
+            <div className='container'>
                 <h1>{room.title}</h1>
                 <h2>Стоимость: {room.price} рублей/сутки</h2>
                 <img className='rounded roomImg' src={room.imgUrl} alt='roomIMG' width='700' />
-                <div className='mt-5'>
-                    <button className='btn btn-primary' onClick={onClickAdd}>
-                        Выбрать этот <i></i>
-                    </button>
-                </div>
+                <section className='about_number'>
+                    <ul className='mt-5'>
+                        {icons.path.map((icon, i) => (
+                            <i className={icon} key={icon}>
+                                {' ' + icons.name[i]}
+                            </i>
+                        ))}
+                    </ul>
+                    <ul></ul>
+                    <p>{room.description.content}</p>
+                </section>
+
+                <button className='btn btn-primary mt-5' onClick={onClickAdd}>
+                    Выбрать этот <i></i>
+                </button>
+
                 <div className='mt-5'>
                     <BackHistoryButton />
                 </div>

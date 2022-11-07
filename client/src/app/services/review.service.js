@@ -1,19 +1,14 @@
 import httpService from './http.service';
 
-const reviewEndpoint = 'reviews/';
+const reviewEndpoint = '/reviews/';
 
 const reviewService = {
     createReview: async (payload) => {
         const { data } = await httpService.post(reviewEndpoint, payload);
         return data;
     },
-    getReviews: async (pageId) => {
-        const { data } = await httpService.get(reviewEndpoint, {
-            params: {
-                orderBy: 'pageId',
-                equalTo: `${pageId}`,
-            },
-        });
+    getReviews: async () => {
+        const { data } = await httpService.get(reviewEndpoint);
         return data;
     },
     removeReview: async (reviewId) => {
