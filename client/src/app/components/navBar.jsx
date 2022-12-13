@@ -26,45 +26,16 @@ const NavBar = () => {
                 <ul className='nav shadow'>
                     {links.map(({ id, path, title }) => (
                         <li key={id} className='nav-item'>
-                            <Link to={path} className='nav-link link-info'>
+                            <Link to={path} className='nav-link'>
                                 {title}
                             </Link>
                         </li>
                     ))}
-                    {/* <li className='nav-item'> */}
-                    {/* <Link to='/All' className='nav-link'>
-                            Все номера
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/actions' className='nav-link'>
-                            Акции
-                        </Link>
-                    </li>
-
-                    <li className='nav-item'>
-                        <Link to='/entertaiments' aria-current='page' className='nav-link'>
-                            Развлечения
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/menu' aria-current='page' className='nav-link'>
-                            Меню ресторана
-                        </Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link to='/contacts' aria-current='page' className='nav-link'>
-                            Контакты
-                        </Link>
-                    </li> */}
                     {isLoggedIn ? (
                         <NavProfile />
                     ) : (
                         <li className='nav-item'>
-                            <Link
-                                to='/auth/login'
-                                aria-current='page'
-                                className='nav-link link-info'>
+                            <Link to='/auth/login' aria-current='page' className='nav-link'>
                                 Войти / Зарегистрироваться
                             </Link>
                         </li>
@@ -75,7 +46,7 @@ const NavBar = () => {
                         to='/booked'
                         aria-current='page'
                         id={items.roomId}
-                        className=' btn btn-outline-info'>
+                        className=' btn btn-outline-warning'>
                         Выбранные номера <i>{items.length}</i>
                     </Link>
                 </div>

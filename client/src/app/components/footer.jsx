@@ -18,10 +18,10 @@ const Footer = () => {
                         href='https://discordapp.com/users/947792157983514624'
                         target='_blank'
                         rel='noopener noreferrer'>
-                        <i class='bi bi-discord'></i>
+                        <i className='bi bi-discord'></i>
                     </a>
                     <a href='https://github.com/DmitryKalashnikov91/Deploy-hotel'>
-                        <i class='bi bi-github'></i>
+                        <i className='bi bi-github'></i>
                     </a>
                 </div>
             </footer>
