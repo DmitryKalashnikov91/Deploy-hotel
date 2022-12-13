@@ -34,7 +34,7 @@ const App = () => {
 
                 <NavBar />
                 {elements}
-                <span className='mt-5'>
+                <span className='to_reviews'>
                     <Link className='link-secondary' to='/reviews'>
                         Читать, оставить отзывы
                     </Link>

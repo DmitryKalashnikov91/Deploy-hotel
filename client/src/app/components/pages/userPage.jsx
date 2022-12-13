@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 //Components
 import UserCard from './userCard';
 import Reviews from './reviews/reviews';
+import { ReviewProvider } from '../../hoc/useReview';
 
 const UserPage = () => {
     return (
@@ -14,7 +15,9 @@ const UserPage = () => {
                     <UserCard />
                 </div>
                 <div className='col-md-8'>
-                    <Reviews />
+                    <ReviewProvider>
+                        <Reviews />
+                    </ReviewProvider>
                 </div>
             </div>
         </div>

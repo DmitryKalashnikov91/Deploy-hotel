@@ -4,7 +4,6 @@ import { displayDate } from '../../../../utils/displayDate';
 import { getCurrentUserId, getUserById } from '../../../../redux/slices/userSlice';
 import { useSelector } from 'react-redux';
 const Review = ({ content, created_at: created, _id: id, userId, onRemove }) => {
-    console.log(userId);
     const currentUserId = useSelector(getCurrentUserId());
     const user = useSelector(getUserById(userId));
     return (

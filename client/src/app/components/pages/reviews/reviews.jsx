@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { orderBy } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
     addReview,
     getReviews,
@@ -11,23 +12,29 @@ import {
 import { getCurrentUserData } from '../../../../redux/slices/userSlice';
 import ReviewsList from './reviewsList';
 import AddReviewForm from './addReviewForm';
+import { useReview } from '../../../hoc/useReview';
 
 const Reviews = () => {
+    const { userId } = useParams();
     const dispatch = useDispatch();
+    const reviews = useSelector(getReviews());
     const currentUser = useSelector(getCurrentUserData());
+    const sortedReviews = orderBy(reviews, ['created_at'], ['desc']);
     useEffect(() => {
-        dispatch(loadReviewsList(currentUser._id));
-    }, [currentUser._id]);
-
+        dispatch(loadReviewsList(userId));
+        console.log(userId);
+    }, [userId]);
+    const { createReview } = useReview();
     const handleRemoveReview = (data) => {
         removeReview(data);
     };
-    const reviews = useSelector(getReviews());
+
     const isLoading = useSelector(getReviewsLoadingStatus());
     const handleSubmit = (data) => {
-        dispatch(addReview({ ...data, pageId: currentUser._id }));
+        // dispatch(addReview({ ...data, pageId: currentUser._id }));
+        return data !== undefined ? createReview(data) : null;
     };
-    const sortedReviews = orderBy(reviews, ['created_at'], ['desc']);
+
     return (
         <>
             <div className='card mb-2'>
@@ -35,22 +42,19 @@ const Reviews = () => {
                     <AddReviewForm onSubmit={handleSubmit} />
                 </div>
             </div>
-            {sortedReviews > 0 && (
-                <div className='card mb-3'>
-                    <div className='card-body '>
-                        <h2>Reviews</h2>
 
-                        <hr />
-                        {isLoading ? (
-                            <ReviewsList reviews={sortedReviews} onRemove={handleRemoveReview} />
-                        ) : (
-                            <p className='text-info'>
-                                Здесь пока нет отзывов, можете оставить свой
-                            </p>
-                        )}
-                    </div>
+            <div className='card mb-3'>
+                <div className='card-body '>
+                    <h2>Reviews</h2>
+
+                    <hr />
+                    {isLoading ? (
+                        <ReviewsList reviews={sortedReviews} onRemove={handleRemoveReview} />
+                    ) : (
+                        <p className='text-info'>Здесь пока нет отзывов, можете оставить свой</p>
+                    )}
                 </div>
-            )}
+            </div>
         </>
     );
 };

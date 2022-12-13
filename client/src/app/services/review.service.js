@@ -7,8 +7,13 @@ const reviewService = {
         const { data } = await httpService.post(reviewEndpoint, payload);
         return data;
     },
-    getReviews: async () => {
-        const { data } = await httpService.get(reviewEndpoint);
+    getReviews: async (pageId) => {
+        const { data } = await httpService.get(reviewEndpoint, {
+            params: {
+                orderBy: "pageId",
+                equalTo: `${pageId}`
+            }
+        });
         return data;
     },
     removeReview: async (reviewId) => {

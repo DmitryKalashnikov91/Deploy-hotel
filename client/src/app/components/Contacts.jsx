@@ -23,6 +23,7 @@ const Contacts = () => {
             </div>
             <div className='map-container'>
                 <iframe
+                    title='map-hot'
                     src='https://yandex.ru/map-widget/v1/-/CCUVrGXZPC'
                     frameBorder='1'
                     allowFullScreen={true}></iframe>
@@ -32,25 +33,3 @@ const Contacts = () => {
 };
 
 export default Contacts;
-
-{
-    /* <div style='position:relative;overflow:hidden;'>
-    <a
-        href='https://yandex.ru/maps/org/parus/126492197339/?utm_medium=mapframe&utm_source=maps'
-        style='color:#eee;font-size:12px;position:absolute;top:0px;'>
-        Парус
-    </a>
-    <a
-        href='https://yandex.ru/maps/213/moscow/category/hotel/184106414/?utm_medium=mapframe&utm_source=maps'
-        style='color:#eee;font-size:12px;position:absolute;top:14px;'>
-        Гостиница в Москве
-    </a>
-    <iframe
-        src='https://yandex.ru/map-widget/v1/-/CCUVrGXZPC'
-        width='560'
-        height='400'
-        frameborder='1'
-        allowfullscreen='true'
-        style='position:relative;'></iframe>
-</div>; */
-}
