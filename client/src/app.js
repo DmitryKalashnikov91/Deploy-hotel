@@ -5,11 +5,11 @@ import React from 'react';
 import './styles/app.scss';
 
 //Redux
-import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from './redux/slices/userSlice';
+// import { useSelector } from 'react-redux';
+// import { getIsLoggedIn } from './redux/slices/userSlice';
 
 // Hocs
-import withRedux from './hoc/withRedux';
+// import withRedux from './hoc/withRedux';
 import withRouter from './hoc/withRouter';
 
 // Components
@@ -17,28 +17,28 @@ import withRouter from './hoc/withRouter';
 // import Header from './app/components/header';
 
 //Layouts
-import AppLoader from './utils/appLoader';
-import { useLocation, useRoutes } from 'react-router-dom';
+// import AppLoader from './utils/appLoader';
+import { useRoutes } from 'react-router-dom';
 import routes from './routes';
 
 const App = () => {
-    const isLoggedIn = useSelector(getIsLoggedIn());
-    const location = useLocation();
-    const elements = useRoutes(routes(isLoggedIn, location));
+    // const isLoggedIn = useSelector(getIsLoggedIn());
+    // const location = useLocation();
+    const elements = useRoutes(routes);
 
     return (
         <div className='container-xxl'>
-            <AppLoader>
-                {elements}
-                {/* <span className='to_reviews'>
+            {/* <AppLoader> */}
+            {elements}
+            {/* <span className='to_reviews'>
                     <Link className='link-secondary' to='/reviews'>
                         Читать, оставить отзывы
                     </Link>
                 </span> */}
-            </AppLoader>
+            {/* </AppLoader> */}
             {/* <Footer /> */}
         </div>
     );
 };
-const AppWithStoreAndRoutes = withRedux(withRouter(App));
-export default AppWithStoreAndRoutes;
+const AppWithRoutes = withRouter(App);
+export default AppWithRoutes;

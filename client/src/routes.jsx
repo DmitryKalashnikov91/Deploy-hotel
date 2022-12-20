@@ -5,17 +5,16 @@ import RegisterForm from './app/components/common/form/registerForm';
 import Contacts from './app/components/Contacts';
 import Entertaiments from './app/components/Entertaiments';
 import Header from './app/components/header';
-import Main from './app/components/Main';
+import Main from './app/components/pages/main/Main';
 import Menu from './app/components/Menu';
 import NavBar from './app/components/navBar';
 import NumberList from './app/components/NumberList';
 import Booked from './app/components/pages/Booked';
-import Reviews from './app/components/pages/reviews/reviews';
 import RoomPage from './app/components/pages/roomPage';
 import AuthLayout from './app/layout/AuthLayout';
 import RoomsLayout from './app/layout/RoomsLayout';
 
-const routes = (isLoggedIn) => [
+const routes = [
     //main
     {
         path: '/',
@@ -89,10 +88,10 @@ const routes = (isLoggedIn) => [
         path: 'actions',
         element: <Actions />,
     },
-    {
-        path: 'reviews',
-        element: isLoggedIn ? <Reviews /> : <Navigate to='/auth/register' />,
-    },
+    // {
+    //     path: 'reviews',
+    //     element: isLoggedIn ? <Reviews /> : <Navigate to='/auth/register' />,
+    // },
     // Redirect
     {
         path: '*',
