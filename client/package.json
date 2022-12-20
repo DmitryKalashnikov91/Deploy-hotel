@@ -2,6 +2,9 @@
   "name": "hotel-diplom",
   "version": "0.1.0",
   "private": true,
+  "overrides": {
+    "autoprefixer": "10.4.5"
+},
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "axios": "^0.27.2",

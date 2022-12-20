@@ -6,14 +6,24 @@ const Footer = () => {
     return (
         <section className='pt-5 m-5'>
             <footer>
-                <p className='text-light'>
-                    <Link to='/login'>Зарегистрируйтесь</Link>, чтобы читать или оставить отзывы об
-                    отеле.
-                </p>
+                <div className='log'>
+                    <img
+                        src='https://thumb.tildacdn.com/tild3232-3134-4133-a431-373835393739/-/resize/476x/-/format/webp/21__.png'
+                        alt='logo'
+                        width={200}
+                        height={50}
+                    />
+                </div>
                 <div className='icons text-info'>
-                    <a href='https://t.me/kald3al' target='_blank' rel='noopener noreferrer'>
-                        <i className='bi bi-telegram tg-ico'></i>
-                    </a>
+                    <span>По вопросам сотрудничества:</span>
+                    <div className='contacts'>
+                        <p>Официальный представитель МФКЭС "НАШ МИР-XXI ВЕК"</p>
+                        <strong>Игорь А.Алекс</strong>
+                        <a href='tel:+79251586579'>+7 (925) 158-65-79</a>
+                        <p>Разработчик</p>
+                        <strong>Калашников Д.А.</strong>
+                        <a href='tel:+79999152567'>+7 (999) 915-25-67</a>
+                    </div>
                     <a
                         href='https://discordapp.com/users/947792157983514624'
                         target='_blank'

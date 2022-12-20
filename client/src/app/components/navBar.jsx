@@ -3,25 +3,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //Redux
-import { useSelector } from 'react-redux';
-import { getIsLoggedIn } from '../../redux/slices/userSlice';
+// import { useSelector } from 'react-redux';
+// import { getIsLoggedIn } from '../../redux/slices/userSlice';
 
 // Layouts
-import NavProfile from '../layout/navProfile';
+// import NavProfile from '../layout/navProfile';
 
 const NavBar = () => {
-    const isLoggedIn = useSelector(getIsLoggedIn());
-    const { items } = useSelector((state) => state.booked);
+    // const isLoggedIn = useSelector(getIsLoggedIn());
+    // const { items } = useSelector((state) => state.booked);
     const links = [
-        { id: 1, path: 'all', title: 'Все номера' },
-        { id: 2, path: 'actions', title: 'Акции' },
-        { id: 3, path: 'entertaiments', title: 'Развлечения' },
-        { id: 4, path: 'menu', title: 'Меню ресторана' },
-        { id: 5, path: 'contacts', title: 'Контакты' },
+        { id: 1, path: 'all', title: 'Эскизы' },
+        { id: 2, path: 'actions', title: 'О проекте' },
+        { id: 3, path: 'entertaiments', title: 'Новости нашего мира' },
+        { id: 4, path: 'menu', title: 'Поэзия' },
+        { id: 5, path: 'contacts', title: 'Наш мир поддержали' },
     ];
 
     return (
-        <nav className='navbar mb-4'>
+        <nav className='navbar mb-4 '>
             <div className='container-fluid d-flex justify-content-space-between'>
                 <ul className='nav shadow'>
                     {links.map(({ id, path, title }) => (
@@ -31,7 +31,7 @@ const NavBar = () => {
                             </Link>
                         </li>
                     ))}
-                    {isLoggedIn ? (
+                    {/* {isLoggedIn ? (
                         <NavProfile />
                     ) : (
                         <li className='nav-item'>
@@ -39,9 +39,9 @@ const NavBar = () => {
                                 Войти / Зарегистрироваться
                             </Link>
                         </li>
-                    )}
+                    )} */}
                 </ul>
-                <div className='booked'>
+                {/* <div className='booked'>
                     <Link
                         to='/booked'
                         aria-current='page'
@@ -49,7 +49,7 @@ const NavBar = () => {
                         className=' btn btn-outline-warning'>
                         Выбранные номера <i>{items.length}</i>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </nav>
     );

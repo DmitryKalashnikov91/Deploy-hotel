@@ -4,8 +4,10 @@ import LoginForm from './app/components/common/form/loginForm';
 import RegisterForm from './app/components/common/form/registerForm';
 import Contacts from './app/components/Contacts';
 import Entertaiments from './app/components/Entertaiments';
+import Header from './app/components/header';
 import Main from './app/components/Main';
 import Menu from './app/components/Menu';
+import NavBar from './app/components/navBar';
 import NumberList from './app/components/NumberList';
 import Booked from './app/components/pages/Booked';
 import Reviews from './app/components/pages/reviews/reviews';
@@ -18,6 +20,16 @@ const routes = (isLoggedIn) => [
     {
         path: '/',
         element: <Main />,
+        children: [
+            {
+                path: '',
+                element: <Header />,
+            },
+            {
+                path: '',
+                element: <NavBar />,
+            },
+        ],
     },
     // Auth
     {

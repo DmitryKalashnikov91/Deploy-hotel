@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 //style
 import './styles/app.scss';
 
@@ -13,9 +13,8 @@ import withRedux from './hoc/withRedux';
 import withRouter from './hoc/withRouter';
 
 // Components
-import Footer from './app/components/footer';
-import Header from './app/components/header';
-import NavBar from './app/components/navBar';
+// import Footer from './app/components/footer';
+// import Header from './app/components/header';
 
 //Layouts
 import AppLoader from './utils/appLoader';
@@ -30,18 +29,14 @@ const App = () => {
     return (
         <div className='container-xxl'>
             <AppLoader>
-                <Header />
-
-                <NavBar />
                 {elements}
-                <span className='to_reviews'>
+                {/* <span className='to_reviews'>
                     <Link className='link-secondary' to='/reviews'>
                         Читать, оставить отзывы
                     </Link>
-                </span>
+                </span> */}
             </AppLoader>
-
-            {!isLoggedIn && <Footer />}
+            {/* <Footer /> */}
         </div>
     );
 };
